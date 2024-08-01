@@ -43,6 +43,10 @@ class CommandLineHandler:
             type=str,
             help='The optional MQTT broker password')
         parser.add_argument(
+            '--topic',
+            type=str,
+            help='The MQTT broker topic - default: custom-data/bluetti/{state,command}/{device})')
+        parser.add_argument(
             '--interval',
             default=0,
             type=int,
@@ -107,6 +111,7 @@ class CommandLineHandler:
             bus=bus,
             hostname=args.hostname,
             home_assistant_mode=args.ha_config,
+            topic=args.topic,
             port=args.port,
             username=args.username,
             password=args.password,
